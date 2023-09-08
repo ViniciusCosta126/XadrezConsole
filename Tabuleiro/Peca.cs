@@ -7,12 +7,11 @@ namespace XadrezConsole.tabuleiro {
         public int QteMovimentos { get; protected set; }
         public Tabuleiro Tabuleiro { get; protected set; }
 
-        public Peca(Posicao posicao, Tabuleiro tab, Cor cor) {
-            Posicao = posicao;
+        public Peca(Tabuleiro tab, Cor cor) {
+            Posicao = null;
             Tabuleiro = tab;
             Cor = cor;
             QteMovimentos = 0;
-
         }
     }
 }
