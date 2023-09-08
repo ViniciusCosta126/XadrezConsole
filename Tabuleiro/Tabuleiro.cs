@@ -1,5 +1,5 @@
 ﻿
-namespace XadrezConsole.Tabuleiro;
+namespace XadrezConsole.tabuleiro;
 internal class Tabuleiro {
     public int Linhas { get; set; }
     public int Colunas { get; set; }
@@ -10,5 +10,9 @@ internal class Tabuleiro {
         Linhas = linhas;
         Colunas = colunas;
         pecas = new Peca[linhas, colunas];
+    }
+
+    public Peca peca(int linha, int coluna) {
+        return pecas[linha, coluna];  
     }
 }
