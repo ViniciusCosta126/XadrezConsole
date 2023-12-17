@@ -1,6 +1,5 @@
 ﻿using System;
 using tabuleiro;
-using xadrez;
 using XadrezConsole;
 using XadrezConsole.tabuleiro;
 using XadrezConsole.Xadrez;
@@ -11,9 +10,20 @@ namespace MyApp // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            PosicaoXadrez pos = new ('a',1);
-            System.Console.WriteLine(pos);
-            System.Console.WriteLine(pos.toPosicao());
+            try
+            {
+                Tabuleiro tab = new Tabuleiro(8, 8);
+
+                tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 0));
+                tab.ColocarPeca(new Rei(tab, Cor.Branca), new Posicao(3, 0));
+                tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
+                tab.ColocarPeca(new Torre(tab, Cor.Branca), new Posicao(2, 4));
+                Tela.ImprimirTabuleiro(tab);
+            }
+            catch (TabuleiroException e)
+            {
+                System.Console.WriteLine(e.Message);
+            }
             Console.ReadLine();
         }
     }
