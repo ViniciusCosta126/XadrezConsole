@@ -1,5 +1,6 @@
 ﻿using System;
 using tabuleiro;
+using xadrez;
 using XadrezConsole;
 using XadrezConsole.tabuleiro;
 using XadrezConsole.Xadrez;
@@ -12,17 +13,25 @@ namespace MyApp // Note: actual namespace depends on the project name.
         {
             try
             {
-                Tabuleiro tab = new Tabuleiro(8, 8);
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(0, 0));
-                tab.ColocarPeca(new Rei(tab, Cor.Branca), new Posicao(3, 0));
-                tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
-                tab.ColocarPeca(new Torre(tab, Cor.Branca), new Posicao(2, 4));
-                Tela.ImprimirTabuleiro(tab);
+                while (!partida.terminada)
+                {
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.tab);
+                    Console.WriteLine();       
+                    Console.Write("Origem: ");
+                    Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+
+                    partida.executaMovimento(origem, destino);
+                }
+
             }
             catch (TabuleiroException e)
             {
-                System.Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message);
             }
             Console.ReadLine();
         }
