@@ -2,8 +2,7 @@
 using tabuleiro;
 using xadrez;
 using XadrezConsole;
-using XadrezConsole.tabuleiro;
-using XadrezConsole.Xadrez;
+
 
 namespace MyApp // Note: actual namespace depends on the project name.
 {
@@ -19,9 +18,15 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 {
                     Console.Clear();
                     Tela.ImprimirTabuleiro(partida.tab);
-                    Console.WriteLine();       
+                    Console.WriteLine();
                     Console.Write("Origem: ");
                     Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                    
+                    bool[,] possicoesPossiveis = partida.tab.peca(origem).movimentosPossiveis();
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.tab, possicoesPossiveis);
+                    Console.WriteLine();
+
                     Console.Write("Destino: ");
                     Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
 

@@ -1,15 +1,15 @@
-using XadrezConsole.tabuleiro;
-using XadrezConsole.Xadrez;
+using tabuleiro;
+using xadrez;
 
 namespace xadrez
 {
     class PartidaDeXadrez
     {
         public Tabuleiro tab { get; private set; }
-        private readonly int turno;
-        private readonly Cor jogadorAtual;
+        private int turno;
+        private Cor jogadorAtual;
 
-        public bool terminada {get; private set;}
+        public bool terminada { get; private set; }
 
         public PartidaDeXadrez()
         {
