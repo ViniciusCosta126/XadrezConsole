@@ -11,46 +11,46 @@ internal class Torre : Peca {
         return "T";
     }
     private bool podeMover(Posicao pos) {
-        Peca p = tab.peca(pos);
+        Peca p = tab.Peca(pos);
         return p == null || p.Cor != Cor;
     }
-    public override bool[,] movimentosPossiveis() {
+    public override bool[,] MovimentosPossiveis() {
         bool[,] mat = new bool[tab.Linhas, tab.Colunas];
         Posicao pos = new Posicao(0, 0);
 
         //acima
-        pos.definirValores(Posicao.Linha - 1, Posicao.Coluna);
-        while (tab.posicaoValida(pos) && podeMover(pos)) {
+        pos.DefinirValores(Posicao.Linha - 1, Posicao.Coluna);
+        while (tab.PosicaoValida(pos) && podeMover(pos)) {
             mat[pos.Linha, pos.Coluna] = true;
-            if (tab.peca(pos) != null && tab.peca(pos).Cor != Cor) {
+            if (tab.Peca(pos) != null && tab.Peca(pos).Cor != Cor) {
                 break;
             }
             pos.Linha--;
         }
 
         //abaixo
-        pos.definirValores(Posicao.Linha + 1, Posicao.Coluna);
-        while (tab.posicaoValida(pos) && podeMover(pos)) {
+        pos.DefinirValores(Posicao.Linha + 1, Posicao.Coluna);
+        while (tab.PosicaoValida(pos) && podeMover(pos)) {
             mat[pos.Linha, pos.Coluna] = true;
-            if (tab.peca(pos) != null && tab.peca(pos).Cor != Cor) {
+            if (tab.Peca(pos) != null && tab.Peca(pos).Cor != Cor) {
                 break;
             }
             pos.Linha++;
         }
         //esquerda 
-        pos.definirValores(Posicao.Linha, Posicao.Coluna - 1);
-        while (tab.posicaoValida(pos) && podeMover(pos)) {
+        pos.DefinirValores(Posicao.Linha, Posicao.Coluna - 1);
+        while (tab.PosicaoValida(pos) && podeMover(pos)) {
             mat[pos.Linha, pos.Coluna] = true;
-            if (tab.peca(pos) != null && tab.peca(pos).Cor != Cor) {
+            if (tab.Peca(pos) != null && tab.Peca(pos).Cor != Cor) {
                 break;
             }
             pos.Coluna--;
         }
         //direita 
-        pos.definirValores(Posicao.Linha, Posicao.Coluna + 1);
-        while (tab.posicaoValida(pos) && podeMover(pos)) {
+        pos.DefinirValores(Posicao.Linha, Posicao.Coluna + 1);
+        while (tab.PosicaoValida(pos) && podeMover(pos)) {
             mat[pos.Linha, pos.Coluna] = true;
-            if (tab.peca(pos) != null && tab.peca(pos).Cor != Cor) {
+            if (tab.Peca(pos) != null && tab.Peca(pos).Cor != Cor) {
                 break;
             }
             pos.Coluna++;

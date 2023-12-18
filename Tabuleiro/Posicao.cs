@@ -13,7 +13,7 @@ namespace tabuleiro {
             return Linha + ", " + Coluna;
         }
 
-        public void definirValores(int linha, int coluna) {
+        public void DefinirValores(int linha, int coluna) {
             Linha = linha;
             Coluna = coluna;
         }

@@ -14,20 +14,20 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 while (!partida.terminada) {
                     try {
                         Console.Clear();
-                        Tela.imprimirPartida(partida);
+                        Tela.ImprimirPartida(partida);
 
                         Console.WriteLine();
                         Console.Write("Origem: ");
-                        Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                        Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
                         partida.validarPosicaOrigem(origem);
 
-                        bool[,] possicoesPossiveis = partida.tab.peca(origem).movimentosPossiveis();
+                        bool[,] possicoesPossiveis = partida.tab.Peca(origem).MovimentosPossiveis();
                         Console.Clear();
                         Tela.ImprimirTabuleiro(partida.tab, possicoesPossiveis);
                         Console.WriteLine();
 
                         Console.Write("Destino: ");
-                        Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+                        Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
 
                         partida.validarPosicaDestino(origem, destino);
                         partida.realizaJogada(origem, destino);
@@ -38,7 +38,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     }
                 }
                 Console.Clear();
-                Tela.imprimirPartida(partida);
+                Tela.ImprimirPartida(partida);
             }
             catch (TabuleiroException e) {
                 Console.WriteLine(e.Message);

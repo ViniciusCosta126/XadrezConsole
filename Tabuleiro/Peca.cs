@@ -14,15 +14,15 @@ namespace tabuleiro {
             QteMovimentos = 0;
         }
 
-        public void incrementarQteMovimentos() {
+        public void IncrementarQteMovimentos() {
             QteMovimentos += 1;
         }
-        public void decrementarQteMovimentos() {
+        public void DecrementarQteMovimentos() {
             QteMovimentos -= 1;
         }
 
-        public bool existeMovimentosPossiveis() {
-            bool[,] mat = movimentosPossiveis();
+        public bool ExisteMovimentosPossiveis() {
+            bool[,] mat = MovimentosPossiveis();
 
             for (int i = 0; i < tab.Linhas; i++) {
                 for (int j = 0; j < tab.Colunas; j++) {
@@ -34,9 +34,9 @@ namespace tabuleiro {
             return false;
         }
 
-        public bool podeMoverPara(Posicao pos) {
-            return movimentosPossiveis()[pos.Linha, pos.Coluna];
+        public bool MovimentoPossivel(Posicao pos) {
+            return MovimentosPossiveis()[pos.Linha, pos.Coluna];
         }
-        public abstract bool[,] movimentosPossiveis();
+        public abstract bool[,] MovimentosPossiveis();
     }
 }
