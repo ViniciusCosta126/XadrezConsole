@@ -6,18 +6,13 @@ using XadrezConsole;
 
 namespace MyApp // Note: actual namespace depends on the project name.
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            try
-            {
+    internal class Program {
+        static void Main(string[] args) {
+            try {
                 PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                while (!partida.terminada)
-                {
-                    try
-                    {
+                while (!partida.terminada) {
+                    try {
                         Console.Clear();
                         Tela.imprimirPartida(partida);
 
@@ -37,17 +32,15 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         partida.validarPosicaDestino(origem, destino);
                         partida.realizaJogada(origem, destino);
                     }
-                    catch (TabuleiroException e)
-                    {
+                    catch (TabuleiroException e) {
                         Console.WriteLine($"{e.Message}");
                         Console.ReadLine();
                     }
-
                 }
-
+                Console.Clear();
+                Tela.imprimirPartida(partida);
             }
-            catch (TabuleiroException e)
-            {
+            catch (TabuleiroException e) {
                 Console.WriteLine(e.Message);
             }
             Console.ReadLine();
