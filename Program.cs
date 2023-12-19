@@ -19,7 +19,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.WriteLine();
                         Console.Write("Origem: ");
                         Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
-                        partida.validarPosicaOrigem(origem);
+                        partida.ValidarPosicaOrigem(origem);
 
                         bool[,] possicoesPossiveis = partida.tab.Peca(origem).MovimentosPossiveis();
                         Console.Clear();
@@ -29,8 +29,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.Write("Destino: ");
                         Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
 
-                        partida.validarPosicaDestino(origem, destino);
-                        partida.realizaJogada(origem, destino);
+                        partida.ValidarPosicaDestino(origem, destino);
+                        partida.RealizaJogada(origem, destino);
                     }
                     catch (TabuleiroException e) {
                         Console.WriteLine($"{e.Message}");
